@@ -1,31 +1,46 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import TabOneScreen from '../screens/one';
+import TabTwoScreen from '../screens/two';
+import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'react-native';
 
-import TabNavigator from './tab-navigator';
-import Modal from '../screens/modal';
-
-export type RootStackParamList = {
-  TabNavigator: undefined;
-  Modal: undefined;
-};
-
-const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
 
 export default function RootStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="TabNavigator">
-        <Stack.Screen
-          name="TabNavigator"
-          component={TabNavigator}
-          options={{ headerShown: false }}
+      <StatusBar barStyle="light-content" backgroundColor="#1a1a1a" />
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: '#2196F3',
+          tabBarInactiveTintColor: '#888',
+          tabBarStyle: {
+            backgroundColor: '#1a1a1a',
+            borderTopColor: '#333',
+          },
+        }}
+      >
+        <Tab.Screen 
+          name="Create" 
+          component={TabOneScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="add-circle-outline" size={size} color={color} />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="Modal"
-          component={Modal}
-          options={{ presentation: 'modal', headerLeft: () => null }}
+        <Tab.Screen 
+          name="Goals" 
+          component={TabTwoScreen}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="list-outline" size={size} color={color} />
+            ),
+          }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

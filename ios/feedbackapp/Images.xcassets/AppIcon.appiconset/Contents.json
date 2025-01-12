@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "DALL·E 2024-12-27 20.12.40 - A simple and minimalistic logo for a goal tracker app. The design features a sleek black checkmark inside a white circle, symbolizing completed tasks.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

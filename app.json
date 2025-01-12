@@ -15,7 +15,14 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.tijn.feedbackapp",
-      "buildNumber": "1"
+      "buildNumber": "1",
+      "privacyPolicy": "https://your-privacy-policy-url.com",
+      "infoPlist": {
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized feedback experiences.",
+        "NSCameraUsageDescription": "This app does not use the camera.",
+        "NSPhotoLibraryUsageDescription": "This app does not access your photos.",
+        "NSMicrophoneUsageDescription": "This app does not use the microphone."
+      }
     },
     "android": {
       "adaptiveIcon": {
